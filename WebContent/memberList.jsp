@@ -14,7 +14,8 @@
 	List<Member> list = (List<Member>) request.getAttribute("memberList");
 	
 	for (Member mem : list) {
-		out.print("<li>" + mem.getMemberId() + ", " + mem.getMemberName() + ", " + mem.getMemberPwd() +", " + mem.getMemberAge()+ "</li>" );
+		out.print("<li>" + mem.getMemberId() + ", " + mem.getMemberName() + ", " 
+					+ mem.getMemberPwd() +", " + mem.getMemberAge()+ "</li>" );
 	}
 %>
 </ul>
