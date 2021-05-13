@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+	id="WebApp_ID" version="4.0">
+	<display-name>edu</display-name>
+	
+	<context-param>
+	<param-name>contextConfig</param-name>
+	<param-value>/WEB-INF/context.xml</param-value>
+	</context-param>
+	
+	<context-param>
+	<param-name>data1</param-name>
+	<param-value>100</param-value>
+	</context-param>
+	
+	<servlet>
+	<servlet-name>initParam</servlet-name>
+	<servlet-class>com.edu.test.InitParamServlet</servlet-class>
+	<init-param>
+	<param-name>id</param-name>
+	<param-value>guest</param-value>
+	</init-param>
+	
+	<init-param>
+	<param-name>password</param-name>
+	<param-value>1234</param-value>
+	</init-param>
+	<load-on-startup>1</load-on-startup>
+	</servlet>
+	
+	<servlet-mapping>
+	<servlet-name>initParam</servlet-name>
+	<url-pattern>/initParam</url-pattern>
+	</servlet-mapping>
+	
+
+	<servlet>
+	<servlet-name>addInfo</servlet-name> <!-- 새롭게 만든 서블릿 이름 -->
+	<servlet-class>com.edu.test.AdditionalInfoServlet</servlet-class> <!-- 실제 addInfo가 호출되는 장소 -->
+	</servlet>
+	
+	<servlet-mapping>
+	<servlet-name>addInfo</servlet-name>
+	<url-pattern>/addInfo/*</url-pattern>   <!-- addInfo 밑의 어떤 location에 있던지  com.edu.test.AdditionalInfoServlet 를 호출한다-->
+	</servlet-mapping>
+	
+	<!-- <servlet> <servlet-name>first</servlet-name> <servlet-class>com.edu.test.FirstServlet</servlet-class> 
+		</servlet> <servlet-mapping> <servlet-name>first</servlet-name> <url-pattern>/first</url-pattern> 
+		</servlet-mapping> -->
+
+</web-app>
